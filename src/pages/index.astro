@@ -1,16 +1,16 @@
 ---
-
+import Layout from './layout.astro'
+import Particles from '../components/space/App.svelte'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Andrea Locatelli dev.">
+	<div
+		class="flex min-h-[calc(100vh-96px)] flex-col items-center justify-center gap-4 px-8 text-7xl tracking-wide text-apricot-200"
+	>
+		<h1>
+			Hi! I'm <span class="font-bold text-apricot-700">Andrea</span>
+		</h1>
+		<h1 class="text-4xl font-light">I'm a web/mobile developer.</h1>
+	</div>
+	<Particles client:load />
+</Layout>

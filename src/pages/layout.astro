@@ -1,0 +1,21 @@
+---
+import '@fontsource/poppins'
+import '@fontsource/space-mono'
+import Header from '../components/space/Header/Header.astro'
+interface Props {
+	title: String
+}
+const { title } = Astro.props
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+	</head>
+	<body class="bg-dark_slate_gray-900">
+		<Header />
+		<slot />
+	</body>
+</html>
