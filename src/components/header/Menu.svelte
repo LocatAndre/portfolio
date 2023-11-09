@@ -17,6 +17,7 @@
 	<button class="z-10" on:click={() => (toggle = !toggle)}>
 		{#if toggle}
 			<svg
+				transition:slide={{ duration: 300, easing: quintOut, axis: 'y' }}
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
 				viewBox="0 0 24 24"
@@ -28,6 +29,7 @@
 			</svg>
 		{:else}
 			<svg
+				transition:slide={{ duration: 300, easing: quintOut, axis: 'y' }}
 				xmlns="http://www.w3.org/2000/svg"
 				fill="none"
 				viewBox="0 0 24 24"
@@ -47,8 +49,10 @@
 
 {#if toggle || innerWidth > 800}
 	<div
-		transition:slide={{ duration: 500, easing: quintOut, axis: 'y' }}
-		class={`${toggle ? 'fixed' : 'hidden'} top-0 text-lg text-white sm:flex sm:h-fit sm:pr-7`}
+		transition:slide={{ duration: 800, easing: quintOut, axis: 'y' }}
+		class={`${
+			toggle ? 'fixed' : 'hidden'
+		} top-0 h-screen bg-dark_slate_gray-900/75 text-lg text-white sm:flex sm:h-fit sm:bg-transparent sm:pr-7`}
 	>
 		<ul
 			class={`flex w-screen flex-col gap-6 rounded-b-2xl bg-dark_slate_gray-800 pb-8 pt-16 sm:w-fit sm:flex-row sm:bg-transparent sm:py-0`}
