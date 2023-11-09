@@ -16,7 +16,7 @@
 			} else {
 				clearInterval(interval)
 				if (contentIndex !== contents.length - 1) {
-					setTimeout(() => (interval = setInterval(deleteText, 100)), 1000)
+					setTimeout(() => (interval = setInterval(deleteText, 100)), 750)
 				}
 			}
 		}
@@ -29,7 +29,7 @@
 				clearInterval(interval)
 				if (contentIndex !== contents.length) {
 					contentIndex++
-					setTimeout(() => (interval = setInterval(tpyeText, 100)), 1000)
+					setTimeout(() => (interval = setInterval(tpyeText, 100)), 750)
 				} else {
 					clearInterval(interval)
 				}
