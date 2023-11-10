@@ -1,17 +1,12 @@
 ---
-import Layout from './layout.astro'
-import Particles from '../components/space/App.svelte'
-import TypedText from '../components/typedText/TypedText.svelte'
+import TypedText from '@components/typedText/TypedText.svelte'
+import Layout from '../layout/indexLayout.astro'
+import Particles from '@components/space/Particles.svelte'
 ---
 
 <Layout title="Andrea Locatelli dev.">
-	<div
-		class="flex min-h-[calc(100vh-80px)] flex-col items-center justify-center gap-4 px-8 text-6xl tracking-wide text-apricot-200 sm:text-7xl"
-	>
-		<h1>
-			Hi! I'm <span class="font-bold text-apricot-700">Andrea</span>
-		</h1>
-		<TypedText client:load />
-	</div>
-	<Particles client:load />
+	<h1>
+		Hi! I'm <span class="font-bold text-apricot-700">Andrea</span>
+	</h1>
+	<TypedText client:load />
 </Layout>

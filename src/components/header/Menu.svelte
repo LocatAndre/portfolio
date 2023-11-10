@@ -1,86 +1,58 @@
 <script lang="ts">
+	import { onMount } from 'svelte'
 	import { quintOut } from 'svelte/easing'
 	import { slide } from 'svelte/transition'
+	import MenuButton from './MenuButton.svelte'
+
+	const menu = [
+		{ path: '/', label: 'Home' },
+		{ path: '/about', label: 'About' },
+		{ path: '/blog', label: 'Blog' },
+		{ path: '/contact', label: 'Contact Me' }
+	]
 
 	let toggle = false
 	let innerWidth: number
+	let currentPath: string
 
 	function handleMenuLayout(event: UIEvent) {
 		innerWidth = (event?.target as Window)?.innerWidth
 		if (innerWidth > 640 && toggle) toggle = false
 	}
+
+	function toggleCallback() {
+		toggle = !toggle
+	}
+
+	onMount(() => {
+		currentPath = window.location.href.replace(/(.+\w\/)(.+)/, '/$2')
+	})
 </script>
 
 <svelte:window bind:innerWidth on:resize={handleMenuLayout} />
 
-<div class="flex basis-2/3 flex-row-reverse pr-7 sm:hidden">
-	<button class="z-10" on:click={() => (toggle = !toggle)}>
-		{#if toggle}
-			<svg
-				transition:slide={{ duration: 300, easing: quintOut, axis: 'y' }}
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke-width="1.5"
-				stroke="currentColor"
-				class="h-6 w-6 stroke-white"
-			>
-				<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-			</svg>
-		{:else}
-			<svg
-				transition:slide={{ duration: 300, easing: quintOut, axis: 'y' }}
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke-width="1.5"
-				stroke="currentColor"
-				class="h-6 w-6 rotate-180 stroke-apricot-700"
-			>
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5"
-				/>
-			</svg>
-		{/if}
-	</button>
-</div>
+<MenuButton {toggle} {toggleCallback} />
 
-{#if toggle || innerWidth > 800}
+{#if toggle || innerWidth > 640}
 	<div
-		transition:slide={{ duration: 800, easing: quintOut, axis: 'y' }}
+		transition:slide={{ duration: 640, easing: quintOut, axis: 'y' }}
 		class={`${
 			toggle ? 'fixed' : 'hidden'
-		} top-0 h-screen bg-dark_slate_gray-900/75 text-lg text-white sm:flex sm:h-fit sm:bg-transparent sm:pr-7`}
+		} top-0 h-screen bg-dark_slate_gray-900/75 text-lg text-apricot-200 sm:flex sm:h-fit sm:bg-transparent`}
 	>
 		<ul
-			class={`flex w-screen flex-col gap-6 rounded-b-2xl bg-dark_slate_gray-800 pb-8 pt-16 sm:w-fit sm:flex-row sm:bg-transparent sm:py-0`}
+			class={`flex w-screen flex-col gap-6 rounded-b-xl bg-dark_slate_gray-800 pb-8 pt-16 sm:w-fit sm:flex-row sm:bg-transparent sm:py-0`}
 		>
-			<li class="w-full text-center sm:w-fit sm:bg-transparent">
-				<a
-					class="decoration-apricot-700 decoration-wavy decoration-2 underline-offset-4 hover:underline"
-					href="/">Home</a
-				>
-			</li>
-			<li class="w-full text-center sm:w-fit sm:bg-transparent">
-				<a
-					class="decoration-apricot-700 decoration-wavy decoration-2 underline-offset-4 hover:underline"
-					href="/about">About</a
-				>
-			</li>
-			<li class="w-full text-center sm:w-fit sm:bg-transparent">
-				<a
-					class="decoration-apricot-700 decoration-wavy decoration-2 underline-offset-4 hover:underline"
-					href="/blog">Blog</a
-				>
-			</li>
-			<li class="w-full text-center sm:w-fit sm:bg-transparent">
-				<a
-					class="decoration-apricot-700 decoration-wavy decoration-2 underline-offset-4 hover:underline"
-					href="/contact">Contact Me</a
-				>
-			</li>
+			{#each menu as item}
+				<li class="w-full text-center sm:w-fit sm:bg-transparent">
+					<a
+						class={`${
+							currentPath === item.path ? 'underline' : null
+						} decoration-apricot-700 decoration-wavy decoration-2 underline-offset-4 hover:underline`}
+						href={item.path}>{item.label}</a
+					>
+				</li>
+			{/each}
 		</ul>
 	</div>
 {/if}
