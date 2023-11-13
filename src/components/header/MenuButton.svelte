@@ -8,7 +8,7 @@
 
 <div class="flex basis-2/3 flex-row-reverse sm:hidden">
 	<div class="z-10 px-8">
-		<button on:click={toggleCallback}>
+		<button on:click={toggleCallback} aria-label="Toggle menu">
 			{#if toggle}
 				<svg
 					transition:slide={{ duration: 300, easing: quintOut, axis: 'y' }}

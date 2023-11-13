@@ -1,21 +1,54 @@
 ---
 import Layout from '@layout/layout.astro'
+import { Image } from 'astro:assets'
+import JobAndLearn from '@components/jobAndLearn/JobAndLearn.svelte'
+
+const work = [
+	{ img: '/tech/work/react.svg', label: 'React/React Native' },
+	{ img: '/tech/work/typescript.svg', label: 'Typescript' },
+	{ img: '/tech/work/node.svg', label: 'NodeJs' },
+	{ img: '/tech/work/next.svg', label: 'NextJs' },
+	{ img: '/tech/work/reactQuery.svg', label: 'React Query' },
+	{ img: '/tech/work/tailwind.svg', label: 'Tailwindcss' },
+	{ img: '/tech/work/prisma.svg', label: 'Prisma' },
+	{ img: '/tech/work/svelte.svg', label: 'Svelte/Sveltekit' },
+	{ img: '/tech/work/git.svg', label: 'Git' }
+]
+
+const learn = [
+	{ img: '/tech/learn/bun.svg', label: 'Bun' },
+	{ img: '/tech/learn/trpc.svg', label: 'TRPC' },
+	{ img: '/tech/learn/tauri.svg', label: 'Tauri' },
+	{ img: '/tech/learn/python.svg', label: 'Python' },
+	{ img: '/tech/learn/tensorflow.svg', label: 'TensorFlow' }
+]
 ---
 
-<Layout title={'About'}>
-	Sono uno sviluppatore web e mobile con due anni di esperienza, specializzato in tecnologie chiave
-	come: React, JavaScript/TypeScript, database e ORM (Object-Relational Mapping). Possiedo una
-	laurea in Sicurezza Informatica, che ha contribuito a consolidare la mia comprensione delle best
-	practice di sicurezza nell'ambito dello sviluppo software. Durante la mia carriera, ho lavorato
-	attivamente con React, dimostrando una competenza avanzata nella creazione di interfacce utente
-	moderne e altamente performanti. La mia padronanza di JavaScript e TypeScript ha contribuito a
-	sviluppare soluzioni software robuste e scalabili. La mia esperienza nel lavoro con database e ORM
-	riflette la mia capacità di gestire e manipolare dati in modo efficiente, garantendo prestazioni
-	ottimali delle applicazioni. Ho collaborato con clienti sia a livello nazionale che
-	internazionale, dimostrando una capacità comprovata di comprendere e soddisfare le esigenze
-	specifiche di progetti diversificati. La mia formazione in Sicurezza Informatica si riflette nella
-	mia attenzione particolare alla sicurezza delle applicazioni che sviluppo, garantendo la
-	protezione dei dati sensibili. Sono orientato al risultato e sempre desideroso di affrontare nuove
-	sfide, aggiornando costantemente le mie competenze per rimanere all'avanguardia nel panorama dello
-	sviluppo web e mobile.
+<Layout
+	title={'About'}
+	description="A description about me, my job and the technology that I like to use"
+>
+	<div class="flex flex-col gap-8">
+		<div class="flex flex-col items-center justify-evenly sm:flex-row">
+			<Image src={'/avatar.webp'} width={420} height={420} alt={'avatar image'} format="webp" />
+			<JobAndLearn {work} {learn} client:load />
+		</div>
+		<p class="text-justify text-lg">
+			Sono uno sviluppatore web e mobile con due anni di esperienza, specializzato in tecnologie
+			chiave come: React, JavaScript/TypeScript, database e ORM. Possiedo una laurea in Sicurezza
+			Informatica, che ha contribuito a consolidare la mia comprensione delle best practice di
+			sicurezza nell'ambito dello sviluppo software. Durante la mia carriera, ho lavorato
+			attivamente con React e React Native, dimostrando una competenza avanzata nella creazione di
+			interfacce utente moderne e altamente performanti. La mia padronanza di JavaScript e
+			TypeScript ha contribuito a sviluppare soluzioni software robuste e scalabili. La mia
+			esperienza nel lavoro con database e ORM riflette la mia capacità di gestire e manipolare dati
+			in modo efficiente, garantendo prestazioni ottimali delle applicazioni. Ho collaborato con
+			clienti sia a livello nazionale che internazionale, dimostrando una capacità comprovata di
+			comprendere e soddisfare le esigenze specifiche di progetti diversificati. La mia formazione
+			in Sicurezza Informatica si riflette nella mia attenzione particolare alla sicurezza delle
+			applicazioni che sviluppo, garantendo la protezione dei dati sensibili. Sono orientato al
+			risultato e sempre desideroso di affrontare nuove sfide, aggiornando costantemente le mie
+			competenze per rimanere all'avanguardia nel panorama dello sviluppo web e mobile.
+		</p>
+	</div>
 </Layout>
