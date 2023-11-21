@@ -35,7 +35,7 @@
 
 {#if toggle || innerWidth > 640}
 	<div
-		transition:slide={{ duration: 640, easing: quintOut, axis: 'y' }}
+		transition:slide={{ duration: innerWidth < 640 ? 640 : 0, easing: quintOut, axis: 'y' }}
 		class={`${
 			toggle ? 'fixed' : 'hidden'
 		} top-0 h-screen bg-dark_slate_gray-900/75 text-lg text-apricot-200 sm:flex sm:h-fit sm:bg-transparent`}
