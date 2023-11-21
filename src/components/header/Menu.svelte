@@ -38,7 +38,7 @@
 		transition:slide={{ duration: innerWidth < 640 ? 640 : 0, easing: quintOut, axis: 'y' }}
 		class={`${
 			toggle ? 'fixed' : 'hidden'
-		} top-0 h-screen bg-dark_slate_gray-900/75 text-lg text-apricot-200 sm:flex sm:h-fit sm:bg-transparent`}
+		} left-0 top-0 h-screen bg-dark_slate_gray-900/75 text-lg text-apricot-200 sm:flex sm:h-fit sm:bg-transparent`}
 	>
 		<ul
 			class={`flex w-screen flex-col gap-6 rounded-b-xl bg-dark_slate_gray-800 pb-8 pt-16 sm:w-fit sm:flex-row sm:bg-transparent sm:py-0`}

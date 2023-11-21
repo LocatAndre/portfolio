@@ -1,7 +1,40 @@
 ---
 import Layout from '@layout/layout.astro'
+import { Image } from 'astro:assets'
+
+const contact = [
+	{
+		icon: 'contact/at.svg',
+		label: 'ciao.loca(at)gmail.com',
+		href: ''
+	},
+	{ icon: 'contact/git.svg', label: 'LocatAndre', href: 'https://github.com/LocatAndre' },
+	{
+		icon: 'contact/linkedin.svg',
+		label: 'Andrea Locatelli',
+		href: 'https://www.linkedin.com/in/andrea-locatelli-6b6489190/'
+	},
+	{ icon: 'contact/cv.svg', label: 'My CV', href: 'cv.pdf' }
+]
 ---
 
-<Layout title={'Contact'} description="My contact page">
-	<p>Contact</p>
+<Layout title={'Contact'} description="You can contact on this link">
+	<div class="flex flex-col items-center justify-center sm:flex-row">
+		<Image src="/contact.webp" width={420} height={420} alt={'404 image'} />
+		<div class="flex h-full flex-col gap-6">
+			<h1 class="text-2xl">You can find me here:</h1>
+			<ul class="flex flex-col gap-4">
+				{
+					contact.map((ele) => (
+						<li class="flex gap-4">
+							<img class="h-6" src={ele.icon} alt="" />
+							<a href={ele.href} target="_blank">
+								{ele.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</div>
 </Layout>

@@ -7,7 +7,7 @@
 </script>
 
 <div class="flex basis-2/3 flex-row-reverse sm:hidden">
-	<div class="z-10 px-8">
+	<div class="z-10">
 		<button on:click={toggleCallback} aria-label="Toggle menu">
 			{#if toggle}
 				<svg
