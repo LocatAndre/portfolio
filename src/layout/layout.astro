@@ -24,3 +24,12 @@ const { title, description } = Astro.props
 		<slot />
 	</body>
 </html>
+
+<style>
+	body::-webkit-scrollbar {
+		width: 4px;
+	}
+	body::-webkit-scrollbar-thumb {
+		@apply bg-apricot-700;
+	}
+</style>

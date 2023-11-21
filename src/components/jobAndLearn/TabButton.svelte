@@ -6,7 +6,7 @@
 
 <button
 	on:click={callback}
-	class={`text-xl ${
+	class={`text-left text-xl ${
 		toggle
 			? 'decoration font-semibold underline decoration-apricot-600 decoration-wavy underline-offset-4'
 			: 'font-normal text-stone-600'
