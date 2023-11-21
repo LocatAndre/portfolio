@@ -19,14 +19,14 @@ const contact = [
 ---
 
 <Layout title={'Contact'} description="You can contact on this link">
-	<div class="flex flex-col items-center justify-center sm:flex-row">
+	<div class="flex flex-col items-center justify-center gap-8 sm:flex-row">
 		<Image src="/contact.webp" width={420} height={420} alt={'404 image'} />
 		<div class="flex h-full flex-col gap-6">
 			<h1 class="text-2xl">You can find me here:</h1>
 			<ul class="flex flex-col gap-4">
 				{
 					contact.map((ele) => (
-						<li class="flex gap-4">
+						<li class="flex gap-4 decoration-apricot-700 decoration-wavy decoration-2 underline-offset-4 hover:underline">
 							<img class="h-6" src={ele.icon} alt="" />
 							<a href={ele.href} target="_blank">
 								{ele.label}
