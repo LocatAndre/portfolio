@@ -4,23 +4,28 @@ import { Image } from 'astro:assets'
 
 const contact = [
 	{
-		icon: 'contact/at.svg',
+		icon: './contact/at.svg',
 		label: 'ciao.loca(at)gmail.com',
-		href: ''
+		href: null
 	},
-	{ icon: 'contact/git.svg', label: 'LocatAndre', href: 'https://github.com/LocatAndre' },
+	{ icon: './contact/git.svg', label: 'LocatAndre', href: 'https://github.com/LocatAndre' },
 	{
-		icon: 'contact/linkedin.svg',
+		icon: './contact/linkedin.svg',
 		label: 'Andrea Locatelli',
 		href: 'https://www.linkedin.com/in/andrea-locatelli-6b6489190/'
 	},
-	{ icon: 'contact/cv.svg', label: 'My CV', href: 'cv.pdf' }
+	{ icon: './contact/cv.svg', label: 'My CV', href: 'cv.pdf' }
 ]
 ---
 
 <Layout title={'Contact'} description="You can contact on this link">
 	<div class="flex flex-col items-center justify-center gap-8 sm:flex-row">
-		<Image src="/contact.webp" width={420} height={420} alt={'404 image'} />
+		<Image
+			src={import.meta.env.BASE_URL + '/contact.webp'}
+			width={420}
+			height={420}
+			alt={'404 image'}
+		/>
 		<div class="flex h-full flex-col gap-6">
 			<h1 class="text-2xl">You can find me here:</h1>
 			<ul class="flex flex-col gap-4">

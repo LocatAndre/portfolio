@@ -5,10 +5,10 @@
 	import MenuButton from './MenuButton.svelte'
 
 	const menu = [
-		{ path: '/', label: 'Home' },
-		{ path: '/about', label: 'About' },
-		{ path: '/blog', label: 'Blog' },
-		{ path: '/contact', label: 'Contact Me' }
+		{ path: './', label: 'Home' },
+		{ path: './about', label: 'About' },
+		{ path: './blog', label: 'Blog' },
+		{ path: './contact', label: 'Contact Me' }
 	]
 
 	let toggle = false

@@ -4,23 +4,23 @@ import { Image } from 'astro:assets'
 import JobAndLearn from '@components/jobAndLearn/JobAndLearn.svelte'
 
 const work = [
-	{ img: '/tech/work/react.svg', label: 'React/React Native' },
-	{ img: '/tech/work/typescript.svg', label: 'Typescript' },
-	{ img: '/tech/work/node.svg', label: 'NodeJs' },
-	{ img: '/tech/work/next.svg', label: 'NextJs' },
-	{ img: '/tech/work/reactQuery.svg', label: 'React Query' },
-	{ img: '/tech/work/tailwind.svg', label: 'Tailwindcss' },
-	{ img: '/tech/work/prisma.svg', label: 'Prisma' },
-	{ img: '/tech/work/svelte.svg', label: 'Svelte/Sveltekit' },
-	{ img: '/tech/work/git.svg', label: 'Git' }
+	{ img: import.meta.env.BASE_URL + '/tech/work/react.svg', label: 'React/React Native' },
+	{ img: import.meta.env.BASE_URL + '/tech/work/typescript.svg', label: 'Typescript' },
+	{ img: import.meta.env.BASE_URL + '/tech/work/node.svg', label: 'NodeJs' },
+	{ img: import.meta.env.BASE_URL + '/tech/work/next.svg', label: 'NextJs' },
+	{ img: import.meta.env.BASE_URL + '/tech/work/reactQuery.svg', label: 'React Query' },
+	{ img: import.meta.env.BASE_URL + '/tech/work/tailwind.svg', label: 'Tailwindcss' },
+	{ img: import.meta.env.BASE_URL + '/tech/work/prisma.svg', label: 'Prisma' },
+	{ img: import.meta.env.BASE_URL + '/tech/work/svelte.svg', label: 'Svelte/Sveltekit' },
+	{ img: import.meta.env.BASE_URL + '/tech/work/git.svg', label: 'Git' }
 ]
 
 const learn = [
-	{ img: '/tech/learn/bun.svg', label: 'Bun' },
-	{ img: '/tech/learn/trpc.svg', label: 'TRPC' },
-	{ img: '/tech/learn/tauri.svg', label: 'Tauri' },
-	{ img: '/tech/learn/python.svg', label: 'Python' },
-	{ img: '/tech/learn/tensorflow.svg', label: 'TensorFlow' }
+	{ img: import.meta.env.BASE_URL + '/tech/learn/bun.svg', label: 'Bun' },
+	{ img: import.meta.env.BASE_URL + '/tech/learn/trpc.svg', label: 'TRPC' },
+	{ img: import.meta.env.BASE_URL + '/tech/learn/tauri.svg', label: 'Tauri' },
+	{ img: import.meta.env.BASE_URL + '/tech/learn/python.svg', label: 'Python' },
+	{ img: import.meta.env.BASE_URL + '/tech/learn/tensorflow.svg', label: 'TensorFlow' }
 ]
 ---
 
@@ -28,9 +28,15 @@ const learn = [
 	title={'About'}
 	description="A description about me, my job and the technology that I like to use"
 >
-	<div class="flex flex-col mb-8 gap-8 sm:px-8">
+	<div class="mb-8 flex flex-col gap-8 sm:px-8">
 		<div class="flex flex-col items-center justify-evenly sm:flex-row">
-			<Image src={'/avatar.webp'} width={420} height={420} alt={'avatar image'} format="webp" />
+			<Image
+				src={import.meta.env.BASE_URL + '/avatar.webp'}
+				width={420}
+				height={420}
+				alt={'avatar image'}
+				format="webp"
+			/>
 			<JobAndLearn {work} {learn} client:load />
 		</div>
 		<p class="max-w-5xl self-center text-justify text-lg">
