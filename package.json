@@ -11,23 +11,23 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.3.1",
-    "@astrojs/svelte": "^4.0.3",
-    "@astrojs/tailwind": "^5.0.2",
+    "@astrojs/svelte": "^5.0.3",
+    "@astrojs/tailwind": "^5.1.0",
     "@fontsource/poppins": "^5.0.8",
-    "@fontsource/space-mono": "^5.0.17",
-    "@threlte/core": "^6.1.0",
-    "@threlte/extras": "^7.5.1",
-    "@types/three": "^0.158.1",
-    "astro": "^3.4.3",
-    "svelte": "^4.0.0",
-    "tailwindcss": "^3.0.24",
-    "three": "^0.158.0",
-    "typescript": "^5.2.2"
+    "@fontsource/space-mono": "^5.0.18",
+    "@threlte/core": "^7.0.12",
+    "@threlte/extras": "^8.1.0",
+    "@types/three": "^0.160.0",
+    "astro": "^4.0.8",
+    "svelte": "^4.2.8",
+    "tailwindcss": "^3.4.0",
+    "three": "^0.160.0",
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "prettier": "^3.0.3",
-    "prettier-plugin-astro": "^0.12.1",
-    "prettier-plugin-svelte": "^3.0.3",
-    "prettier-plugin-tailwindcss": "^0.5.6"
+    "prettier": "^3.1.1",
+    "prettier-plugin-astro": "^0.12.3",
+    "prettier-plugin-svelte": "^3.1.2",
+    "prettier-plugin-tailwindcss": "^0.5.9"
   }
 }
