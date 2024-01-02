@@ -2,6 +2,9 @@
 import '@fontsource/poppins'
 import '@fontsource/space-mono'
 import Header from '../components/header/Header.astro'
+
+import { ViewTransitions } from 'astro:transitions'
+
 interface Props {
 	title: string
 	description: string
@@ -20,6 +23,7 @@ const { title, description } = Astro.props
 		<meta name="description" content={description} />
 		<meta name="keywords" content="HTML, CSS, JavaScript, Astro, Blog, About" />
 		<meta name="author" content="Andrea Locatelli" />
+		<ViewTransitions />
 	</head>
 	<body class="bg-dark_slate_gray-900 text-apricot-200">
 		<Header />
@@ -28,14 +32,13 @@ const { title, description } = Astro.props
 		>
 			<slot />
 		</main>
+		<style>
+			body::-webkit-scrollbar {
+				width: 4px;
+			}
+			body::-webkit-scrollbar-thumb {
+				@apply bg-apricot-700;
+			}
+		</style>
 	</body>
 </html>
-
-<style>
-	body::-webkit-scrollbar {
-		width: 4px;
-	}
-	body::-webkit-scrollbar-thumb {
-		@apply bg-apricot-700;
-	}
-</style>
