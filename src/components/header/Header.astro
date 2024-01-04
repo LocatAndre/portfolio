@@ -1,10 +1,15 @@
 ---
-import Menu from './Menu.svelte'
-
 interface Props {
 	trasparent?: boolean
 }
 const { trasparent } = Astro.props
+
+const menu = [
+	{ path: './', label: 'Home' },
+	{ path: './about', label: 'About' },
+	{ path: './blog', label: 'Blog' },
+	{ path: './contact', label: 'Contact Me' }
+]
 ---
 
 <header class={`fixed top-0 w-full ${trasparent ? 'bg-transparent' : 'bg-dark_slate_gray-900'}`}>
@@ -14,7 +19,83 @@ const { trasparent } = Astro.props
 				<img src="./logo_desktop.svg" class="hidden h-7 w-fit sm:block" alt="logo" />
 				<img src="./logo_mobile.svg" class="block h-7 w-fit sm:hidden" alt="logo" />
 			</a>
-			<Menu client:load />
+			<button
+				aria-controls="navbar-menu"
+				data-collapse-toggle="navbar-menu"
+				class="z-50 flex basis-2/3 justify-end sm:hidden"
+				aria-label="Toggle Menu"
+			>
+				<svg
+					id="close-icon"
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="currentColor"
+					class="hidden h-6 w-6 stroke-white"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+				</svg>
+				<svg
+					id="menu-icon"
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="currentColor"
+					class="h-6 w-6 rotate-180 stroke-apricot-700"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M3.75 6.75h16.5M3.75 12H12m-8.25 5.25h16.5"></path>
+				</svg>
+			</button>
+			<div
+				id="navbar-menu"
+				class={`
+			hidden fixed left-0 top-0 w-full h-screen basis-2/3 sm:justify-end bg-dark_slate_gray-900/75 text-lg text-apricot-200 sm:static sm:flex sm:h-fit sm:bg-transparent`}
+			>
+				<ul
+					class={`flex flex-col gap-6 rounded-b-xl bg-dark_slate_gray-800 pb-8 pt-16  sm:flex-row sm:bg-transparent sm:py-0`}
+				>
+					{
+						menu.map((item) => (
+							<li class="w-full text-center sm:w-fit sm:bg-transparent">
+								<a
+									class={`decoration-apricot-700 decoration-wavy decoration-2 underline-offset-4 hover:underline`}
+									href={item.path}
+								>
+									{item.label}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</div>
 		</div>
 	</div>
 </header>
+
+<script>
+	// after html dom is loaded and after a view transition
+	// start the listeners
+	;['DOMContentLoaded', 'astro:after-swap'].forEach((event) => {
+		document.addEventListener(event, addListeners)
+	})
+
+	function addListeners() {
+		// Find our component DOM on the page.
+		const buttons = document.querySelectorAll('[data-collapse-toggle]')
+		// Add event listeners to fire confetti when a button is clicked.
+		buttons.forEach((button) => {
+			button.addEventListener('click', toggleMenu)
+		})
+	}
+
+	function toggleMenu() {
+		document.getElementById('navbar-menu')?.classList.toggle('hidden')
+		document.getElementById('menu-icon')?.classList.toggle('hidden')
+		document.getElementById('close-icon')?.classList.toggle('hidden')
+	}
+</script>
