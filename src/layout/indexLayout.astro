@@ -29,14 +29,15 @@ const { title, description } = Astro.props
 	</head>
 	<ViewTransitions />
 
-	<body class="bg-dark_slate_gray-900 text-apricot-200">
+	<body class="text-apricot-200">
 		<Header trasparent={true} />
 		<main
-			class="flex h-[calc(100dvh)] flex-col items-center justify-center gap-4 px-8 text-6xl tracking-wide text-apricot-200 sm:text-7xl"
+			class="flex h-[calc(100dvh)] flex-col items-center justify-center gap-4 bg-dark_slate_gray-900 px-8 text-6xl tracking-wide text-apricot-200 sm:text-7xl"
 		>
 			<slot />
 		</main>
 		<Particles client:load />
 	</body>
+
 
 </html>
