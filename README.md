@@ -23,7 +23,7 @@ Per la prima volta mi sono cimentato nella creazione di una piccola animazione 3
 
 Ho deployato il mio sito utilizzando GitHub Pages tramite GitHub Actions. Ora il mio portfolio è facilmente accessibile ovunque, aggiornato automaticamente ogni volta che effettuo nuovi commit!
 
-## 🚀 Controlla il Mio Nuovo Sito Portfolio [qui](https://locatandre.github.io)!
+## 🚀 Controlla il Mio Nuovo Sito Portfolio [qui](https://locatandre.github.io/portfolio/)!
 
 Sono aperto a feedback, suggerimenti o qualsiasi domanda tu possa avere! Grazie per il vostro continuo supporto e non vedo l'ora di vedere cosa il 2024 ha in serbo! 🚀🚀🚀
 
